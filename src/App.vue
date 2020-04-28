@@ -1,8 +1,12 @@
 <template>
   <div id="app">
-    <Header />
+    <Header headerStyle="normal"/>
     <LiveModel />
     <Buy />
+    <LiveModelWText />
+    <Border />
+    <Header headerStyle="italic"/>
+    <Slider />
   </div>
 </template>
 
@@ -10,12 +14,18 @@
 import Header from '@/components/Header.vue'
 import LiveModel from '@/components/LiveModel.vue'
 import Buy from '@/components/Buy.vue'
+import LiveModelWText from '@/components/LiveModelWText.vue'
+import Border from '@/components/Border.vue'
+import Slider from '@/components/Slider.vue'
 export default {
   name: "App",
   components: {
     Header,
     LiveModel,
-    Buy
+    Buy,
+    LiveModelWText,
+    Border,
+    Slider
   }
 };
 </script>

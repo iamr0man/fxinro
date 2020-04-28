@@ -13,8 +13,8 @@
       </div>
     </div>
     <div class="buy__picture">
-      <div class="picture__wrapper"></div>
-      <div class="picture__lines">
+      <div class="picture__box"></div>
+      <div ref="lines" class="picture__lines">
         <img class="" src="../assets/photos/lines.png" alt="lines">
       </div>
     </div>
@@ -23,11 +23,26 @@
 
 <script>
 export default {
-
+  methods: {
+    handleScroll(){
+      if(window.scrollY < 800) {
+        this.$refs.lines.style.transform = `rotate(${window.scrollY * 0.1}deg)`
+      }
+    }
+  },
+  created(){
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
 }
 </script>
 
 <style lang="scss">
+  $circle_size:250px;
+  $size:1.5px;
+
   .buy {
     width: 100vw;
     padding: 30px;
@@ -71,14 +86,71 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
-      .picture__wrapper {
-        position: absolute;
+
+      .picture__box{
+        position:absolute;
+        left: 140px;
+        z-index: -1;
+        margin:10px 5px;
+        width:$circle_size;
+        height:$circle_size;
+        border-radius:50%;
+        background:#5dbcd2;
+        opacity: 0.27;
         
-        width: 250px;
-        height: 250px;
-        background-color: #5dbcd2;
+        border-top:$size*2 dotted #5dbcd2;
+        border-right:$size dotted #5dbcd2;
+        border-bottom:$size*2 dotted #5dbcd2;
+        border-left:$size*10 dotted #5dbcd2;
+
+        animation:spin 0.3s linear infinite;
+        filter:blur(5px);
       }
 
+      @keyframes spin{
+          0%{
+            border-top:$size*2 dotted #5dbcd2;
+            border-right:$size dotted #5dbcd2;
+            border-bottom:$size*2 dotted #5dbcd2;
+            border-left:$size*10 dotted #5dbcd2;
+            
+            filter:blur(5px);
+            transform:scale(1);
+            transform:rotateZ(0deg);
+          }
+          25%{
+            border-top-left-radius:48%;
+            border-top-right-radius:45%;
+            border-bottom-left-radius:45%;
+            border-bottom-right-radius:48%;
+            
+            transform:scale(0.95);
+            filter:blur(6px);
+          }
+          50%{
+            border-top:$size dotted #5dbcd2;
+            border-right:$size*10 dotted #5dbcd2;
+            border-bottom:$size dotted #5dbcd2;
+            border-left:$size dotted #5dbcd2;
+            
+            border-top-left-radius:45%;
+            border-top-right-radius:48%;
+            border-bottom-left-radius:48%;
+            border-bottom-right-radius:45%;
+            
+            filter:blur(7px);
+              
+          }
+          100%{
+            border-top:$size*2 dotted #5dbcd2;
+            border-right:$size dotted #5dbcd2;
+            border-bottom:$size*2 dotted #5dbcd2;
+            border-left:$size*10 dotted #5dbcd2;
+            
+            filter:blur(5px);
+            transform:rotateZ(360deg);
+          }
+      }
     }
   }
 </style>

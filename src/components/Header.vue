@@ -1,6 +1,6 @@
 <template>
-  <div class="intro">
-    <h1 class="intro__header">
+  <div v-on:scroll="handleScroll" class="intro">
+    <h1 ref="header" class="intro__header" :style="{ fontStyle: headerStyle }">
       f x inrō
     </h1>
   </div>  
@@ -8,7 +8,24 @@
 
 <script>
 export default {
-
+  props: {
+    headerStyle: {
+      type: String
+    }
+  },
+  methods: {
+    handleScroll(){
+      if(window.scrollY > 1976 && window.scrollY < 2204) {
+        this.$refs.header.style.transform = `scale(${window.scrollY * 0.0006})`
+      }
+    }
+  },
+  created(){
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
 }
 </script>
 
