@@ -29,8 +29,7 @@
 export default {
   methods: {
     handleScroll(){
-      console.log(window.scrollY)
-      if(window.scrollY > 2300 && window.scrollY < 3127) {
+      if(window.scrollY > 2300 && window.scrollY < 3427) {
         this.$refs.carousel.style.transform = `translateX(${window.scrollY * 0.2}px)`
       }
     }

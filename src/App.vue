@@ -7,6 +7,9 @@
     <Border />
     <Header headerStyle="italic"/>
     <Slider />
+    <Blockquote />
+    <ScaleModel />
+    <Blockquote />
   </div>
 </template>
 
@@ -17,6 +20,8 @@ import Buy from '@/components/Buy.vue'
 import LiveModelWText from '@/components/LiveModelWText.vue'
 import Border from '@/components/Border.vue'
 import Slider from '@/components/Slider.vue'
+import Blockquote from '@/components/Blockquote.vue'
+import ScaleModel from '@/components/ScaleModel.vue'
 export default {
   name: "App",
   components: {
@@ -25,7 +30,9 @@ export default {
     Buy,
     LiveModelWText,
     Border,
-    Slider
+    Slider,
+    Blockquote,
+    ScaleModel
   }
 };
 </script>
