@@ -9,6 +9,7 @@
     <Slider />
     <Blockquote />
     <ScaleModel />
+    <LineY />
     <Blockquote />
   </div>
 </template>
@@ -22,6 +23,7 @@ import Border from '@/components/Border.vue'
 import Slider from '@/components/Slider.vue'
 import Blockquote from '@/components/Blockquote.vue'
 import ScaleModel from '@/components/ScaleModel.vue'
+import LineY from '@/components/LineY.vue'
 export default {
   name: "App",
   components: {
@@ -32,7 +34,8 @@ export default {
     Border,
     Slider,
     Blockquote,
-    ScaleModel
+    ScaleModel,
+    LineY
   }
 };
 </script>
